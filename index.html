@@ -1,0 +1,133 @@
+<html>
+<head>
+<title>
+WRI - Bangalore Data
+</title>
+	<meta charset="utf-8" />
+	
+  	<link href='style/css.css' rel='stylesheet' type='text/css'>
+  	<link href="style/font-awesome.min.css" rel="stylesheet">
+ 	
+	<!-- Leaflet -->
+	<link rel="stylesheet" href="style/leaflet.css" />
+	
+	<link rel="stylesheet" href="style/basics.css" />
+	
+	<script> L_PREFER_CANVAS = true;</script>
+	<script src="script/leaflet.js"></script>
+	<script src="data/geo/BBMP.js"></script>
+	<script src="data/geo/bbmpoutline.js"></script>
+    <script src="data/geo/bbmppca.js"></script>
+    <script src="data/geo/bbmp2001.js"></script>
+	<script src="data/geo/bmrda.js"></script>
+	<script src="data/geo/bbmpwards.js"></script>
+	<script src="data/geo/kacities.js"></script>
+	<script src="script/jquery.min.js"></script>
+	<script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
+    <script src="http://matchingnotes.com/javascripts/leaflet-google.js"></script>
+	
+	
+	<script>
+		MB_ATTR = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+				'Imagery � <a href="http://mapbox.com">Mapbox</a>';
+
+		MB_URL = 'http://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png';
+
+		OSM_URL = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+		OSM_ATTRIB = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+			
+		
+	</script>
+
+</head>
+<body>
+
+<div id="formsect" style="width: 300px; height: 600px; float: left; line-height: 30px">
+<form id="mapping" class='drop' style="line-height: 30px; padding-left:15px;">
+<h2>Outline Selection: </h2>
+BBMP
+<input type="checkbox" id="bbmpoutlinecheck" style="float: right"/>
+<br>
+BBMP Wards
+<input type="checkbox" id="wardsoutlinecheck" style="float: right"/>
+<br>
+BMRDA
+<input type="checkbox" id="bmrdaoutlinecheck" style="float: right"/>
+<br>
+Cities of Karnataka
+<input type="checkbox" id="kacitiesoutlinecheck" style="float: right"/>
+<br>
+
+<h2>Data Selection: </h2>
+Karnataka LULC 2005 - 06
+<input type="checkbox" id="kalulc05check" style="float: right"/>
+<br>
+Karnataka LULC 2011 - 12
+<input type="checkbox" id="kalulc11check" style="float: right"/>
+
+<br>
+<b>BBMP - Population - 2001 </b> 
+<input type="checkbox" id="bbmp2001check" style="float: right"/>
+<br>
+
+Select Parameter<select id="2001parambox" class='drop' style="float: right">
+<option>Total Population</option>
+<option>Population Density</option>
+</select>
+<br>
+<br>
+
+<b>BBMP - Population - 2011</b>
+<input type="checkbox" id="bbmppcacheck" style="float: right"/>
+<br>
+
+Select Parameter<select id="pcaparambox" class='drop' style="float: right">
+<option>Total Population</option>
+<option>Population Density</option>
+<option>Population Growth</option>
+<option>Population under 6</option>
+<option>No of Illiterates</option>
+</select>
+<br>
+<br>
+<b>BBMP - Housing Series - 2011 </b> 
+<input type="checkbox" id="bbmphousingcheck" style="float: right"/>
+<br>
+Select Parameter<select id="parambox" class='drop' style="float: right">
+</select>
+<br><br>
+
+<h2>Base Maps: </h2>
+Open Street Map
+<input type="checkbox" id="osmcheck" style="float: right">
+<br>
+
+<h2>Zoom Level: </h2>
+<b>Zoom To </b> <select id="zoombox" class='drop' style="float: right">
+<option value="Bangalore">Bangalore</option>
+<option value="Karnataka">Karnataka</option>
+</select>
+<br>
+
+Percentage Breaks (Class)
+<div id="userinputsection" style="line-height: 1%;">
+<hr>
+
+ 0 - <INPUT TYPE="text" id="firstclass" Size="1"> - <INPUT TYPE="text" id="secondclass" Size="1"> - <INPUT TYPE="text" id="thirdclass" Size="1"> - <INPUT TYPE="text" id="fourthclass" Size="1"> - Max
+<hr>
+</div>
+<input type="checkbox" name="classifbox" id="classifbox" value="Yes">Percentile<br>
+
+<input type="button" value="Display Map" onclick="dispmap()" class='drop' style="height: 35px; width: 100px; margin-left:30%"> <br>
+<br>
+Please note that LULC might take some time to load depending on your internet connection! 
+</form>
+</div>
+<div id="map" class="map" style="height: 700px; width: 800px; left: 25px; float:left; top:20px; border:1px solid black;">
+
+<script src="script/mapper.js"></script>
+
+</div>
+</body>
+</html>
